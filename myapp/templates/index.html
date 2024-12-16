@@ -1,6 +1,13 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block content %}
+
 <h1>{{ title }}</h1>
+
+<img src="{% static 'django-badge.png' %}" alt="" width="70">
+
 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam est ab reiciendis omnis quae quaerat tempora expedita, eveniet voluptate doloremque accusamus nihil accusantium alias vero autem exercitationem dicta dolorum! Culpa.</p>
+
 {% endblock %}
