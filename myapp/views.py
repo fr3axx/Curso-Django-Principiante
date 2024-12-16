@@ -41,10 +41,10 @@ def tasks(request):
 
 
 def create_task(request):
+    form = CreateNewTask
+    context = {'form':form}
     if request.method == 'GET':
-        return render(request, 'tasks/create_task.html', {
-            'form': CreateNewTask()
-        })
+        return render(request, 'tasks/create_task.html', context)
     else:
         Task.objects.create(
             title=request.POST['title'], description=request.POST['description'], project_id=2)
@@ -52,12 +52,11 @@ def create_task(request):
 
 
 def create_project(request):
+    form = CreateNewProject
+    context = {'form':form}
     if request.method == 'GET':
-        return render(request, 'projects/create_project.html', {
-            'forms': CreateNewProject()
-        })
+        return render(request, 'projects/create_project.html', context)
     else:
-        print(request.POST)
-        return render(request, 'projects/create_project.html', {
-            'forms': CreateNewProject()
-        })
+        Project.objects.create(name=request.POST["name"])
+        print(projects)
+        return render(request, 'projects/create_project.html', context)

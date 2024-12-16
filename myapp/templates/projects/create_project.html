@@ -5,6 +5,7 @@
     <h1>Create Project</h1>
 
     <form method="POST">
+        {% csrf_token %}
         {{form}}
         <button>
             Save
